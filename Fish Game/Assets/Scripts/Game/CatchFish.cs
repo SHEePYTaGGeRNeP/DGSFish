@@ -10,20 +10,25 @@ public class CatchFish : MonoBehaviour
     public FishHolder fishHolder;
 
     private GameObject DefaultScreen;
+    private GameObject FightEvent;
     private GameObject CatchFishEvent;
 
     private Fish fishToCatch;
+    private uint rollNumber;
 
     private void Awake()
     {
         DefaultScreen = GameObject.Find("Canvas");
+        FightEvent = GameObject.Find("FightCanvas");
         CatchFishEvent = GameObject.Find("CatchFishCanvas");
 
         CatchFishEvent.SetActive(false);
+        FightEvent.SetActive(false);
     }
     public void StartCatchEvent()
     {
         DefaultScreen.SetActive(false);
+        FightEvent.SetActive(false);
         CatchFishEvent.SetActive(true);
 
         SetupFish();
@@ -31,12 +36,19 @@ public class CatchFish : MonoBehaviour
     private void SetupFish()
     {
         fishToCatch = fishHolder.RandomFish();
+        rollNumber = Die.Roll(fishToCatch.CatchDie);
         GameObject card = GameObject.Find("FishCard");
         card.transform.GetChild(0).GetComponent<Image>().sprite = fishToCatch.Image;
         card.transform.GetChild(1).GetComponent<Text>().text = fishToCatch.Name;
         card.transform.GetChild(2).GetComponent<Image>().color = ConvertGradeToColor(fishHolder.GradeToInt(fishToCatch));
         card.transform.GetChild(3).GetComponent<Text>().text = fishToCatch.BaseDamage.ToString();
         card.transform.GetChild(4).GetComponent<Text>().text = fishToCatch.AmountOfDamageDie + "d" + fishToCatch.DamageDie;
+        card.transform.GetChild(5).GetComponent<Text>().text = "Thrown: " + rollNumber + ", Needed: ";
+
+        for (int i = 0; i < fishToCatch.CatchValues.Length; i++)
+        {
+            card.transform.GetChild(5).GetComponent<Text>().text += fishToCatch.CatchValues[i] + "/";
+        }
     }
     private Color ConvertGradeToColor(uint grade)
     {
@@ -58,17 +70,7 @@ public class CatchFish : MonoBehaviour
     }
     public void TryCatchFish()
     {
-        uint RollNumber = Die.Roll(fishToCatch.CatchDie);
-
-        Debug.Log("Your roll:" + RollNumber);
-        string required = "Required roll: ";
-        for (int i = 0; i < fishToCatch.CatchValues.Length; i++)
-        {
-            required += fishToCatch.CatchValues[i] + "/";
-        }
-        Debug.Log(required);
-
-        if (fishToCatch.CatchSuccess(RollNumber))
+        if (fishToCatch.CatchSuccess(rollNumber))
         {
             ConsoleLog.AddToLog($"<color=blue>{GameSystem.Instance.CurrentPlayer.Name} caught a " + fishToCatch.Name + "!</color>");
             GameSystem.Instance.CurrentPlayer.AddFish(fishToCatch);
@@ -86,6 +88,7 @@ public class CatchFish : MonoBehaviour
     }
     private void EndCatchEvent()
     {
+        GameSystem.Instance.NextPlayer();
         DefaultScreen.SetActive(true);
         CatchFishEvent.SetActive(false);
     }
