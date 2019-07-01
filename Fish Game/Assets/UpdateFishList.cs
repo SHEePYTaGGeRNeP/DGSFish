@@ -6,31 +6,40 @@ using Assets.Scripts.Game;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpdateFishList : MonoBehaviour
+namespace Assets.Scripts
 {
-    private Dropdown _dropdown;
-
-    void Start()
+    public class UpdateFishList : MonoBehaviour
     {
-        _dropdown = GetComponent<Dropdown>();
-    }
+        private Dropdown _dropdown;
 
-    public void onValueChange(Int32 data)
-    {
-        string fishdata = _dropdown.options[_dropdown.value].text;
-        Fish fish = GameSystem.Instance.CurrentPlayer.Fish.First(pair => pair.Key.ToString() == fishdata).Key;
-        GameSystem.Instance.CurrentPlayer.selectedFish = fish;
-    }
-
-    public void updateList()
-    {
-        List<Fish> fishes = GameSystem.Instance.CurrentPlayer.getAliveFishs().ToList();
-        List<Dropdown.OptionData> newItems = new List<Dropdown.OptionData>();
-        for (int i = 0; i < fishes.Count; i++)
+        void Start()
         {
-            newItems.Add(new Dropdown.OptionData(fishes[i].ToString()));
+            _dropdown = GetComponent<Dropdown>();
+            GameSystem.Instance.NewPlayerTurn += Instance_NewPlayerTurn;
         }
 
-        _dropdown.options = newItems;
+        private void Instance_NewPlayerTurn(object sender, FisherPlayer e)
+        {
+            this.updateList();
+        }
+
+        public void onValueChange(Int32 data)
+        {
+            string fishdata = _dropdown.options[_dropdown.value].text;
+            Fish fish = GameSystem.Instance.CurrentPlayer.Fish.First(pair => pair.Key.ToString() == fishdata).Key;
+            GameSystem.Instance.CurrentPlayer.selectedFish = fish;
+        }
+
+        public void updateList()
+        {
+            List<Fish> fishes = GameSystem.Instance.CurrentPlayer.getAliveFishs().ToList();
+            List<Dropdown.OptionData> newItems = new List<Dropdown.OptionData>();
+            for (int i = 0; i < fishes.Count; i++)
+            {
+                newItems.Add(new Dropdown.OptionData(fishes[i].ToString()));
+            }
+
+            _dropdown.options = newItems;
+        }
     }
 }

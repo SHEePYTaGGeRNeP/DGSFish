@@ -11,15 +11,15 @@ public class FightTrainer : MonoBehaviour
     {
         Trainer opponent = choseRandomTrainer();
         Debug.Log($"Your fighting {opponent.name}.\nHe has a {opponent.fish.name}.");
-        resolveFight(rollPlayer(), opponent);
+        //resolveFight(rollPlayer(), opponent);
     }
 
     public void resolveFight(uint playerDamage, Trainer opp)
     {
         uint opponentDmg = opp.fish.RollDamage();
-        
-        
 
+
+        GameSystem.Instance.NextPlayer();
     }
 
     private uint rollPlayer()
