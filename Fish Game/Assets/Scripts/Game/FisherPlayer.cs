@@ -48,5 +48,7 @@ namespace Assets.Scripts.Game
             List<Fish> fishes = new List<Fish>();
             return Fish.FindAll(fish => !fish.Value).Select(pair  => pair.Key);
         }
+
+        public override string ToString() => this.Name;
     }
 }
