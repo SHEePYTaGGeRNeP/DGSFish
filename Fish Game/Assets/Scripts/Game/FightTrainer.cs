@@ -15,7 +15,7 @@ public class FightTrainer : MonoBehaviour
     {
         Opponent = choseRandomTrainer();
         ConsoleLog.AddToLog($"Your fighting {Opponent.name} with a {Opponent.fish.name}.");
-        //resolveFight(rollPlayer(), opponent);
+        resolveFight(rollPlayer(), new DamageCard[0]);
     }
 
     public void resolveFight(uint playerDamage, IEnumerable<DamageCard> playedCards)
