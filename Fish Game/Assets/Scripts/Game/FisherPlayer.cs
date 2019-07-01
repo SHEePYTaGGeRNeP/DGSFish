@@ -16,6 +16,5 @@ namespace Assets.Scripts.Game
         {
             this.Fish.Add(new KeyValuePair<Fish, bool>(fish, false));
         }
-
     }
 }

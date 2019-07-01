@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\koenvanderels\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\koenvanderels\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_Fish Game.-521354790.00" t="ExcludeRecursive" />
+    <e p="C:\Users\koenvanderels\Desktop\DGSFish\Fish Game" t="IncludeRecursive">
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="Code.asmdef" t="Include" />
+          <e p="Die.cs" t="Include" />
+          <e p="Game" t="Include">
+            <e p="CatchFish.cs" t="Include" />
+            <e p="FightTrainer.cs" t="Include" />
+            <e p="Fish.cs" t="Include" />
+            <e p="FisherPlayer.cs" t="Include" />
+            <e p="FishHolder.cs" t="Include" />
+            <e p="Trainer.cs" t="Include" />
+          </e>
+          <e p="TestRandomFish.cs" t="Include" />
+        </e>
+        <e p="Unit Tests" t="Include">
+          <e p="DieTests.cs" t="Include" />
+          <e p="UnitTests.asmdef" t="Include" />
+        </e>
+      </e>
+      <e p="Code.csproj" t="IncludeRecursive" />
+      <e p="Fish Game.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="UnitTests.csproj" t="IncludeRecursive" />
+    </e>
+  </component>
+</project>
