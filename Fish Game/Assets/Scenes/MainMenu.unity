@@ -1021,7 +1021,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1058760299}
   - component: {fileID: 1058760298}
-  - component: {fileID: 1058760296}
   - component: {fileID: 1058760295}
   m_Layer: 0
   m_Name: Main Camera
@@ -1032,14 +1031,6 @@ GameObject:
   m_IsActive: 1
 --- !u!81 &1058760295
 AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058760294}
-  m_Enabled: 1
---- !u!124 &1058760296
-Behaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1070,9 +1061,9 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 10
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -1247,7 +1238,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 4
 --- !u!222 &1371495558
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1608,7 +1599,7 @@ MonoBehaviour:
   m_CaptionImage: {fileID: 0}
   m_ItemText: {fileID: 661142066}
   m_ItemImage: {fileID: 0}
-  m_Value: 0
+  m_Value: 3
   m_Options:
     m_Options:
     - m_Text: 1
