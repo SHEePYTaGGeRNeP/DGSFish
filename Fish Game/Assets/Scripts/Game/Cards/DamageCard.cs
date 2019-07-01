@@ -10,7 +10,8 @@ namespace Assets.Scripts.Game.Cards
     public class DamageCard : Card
     {
         [SerializeField]
-        private int _damage;
+        private uint _damage;
+        public uint Damage => this._damage;
 
         public override string Description => $"For battling fish. Bonus ({_damage}).";
 

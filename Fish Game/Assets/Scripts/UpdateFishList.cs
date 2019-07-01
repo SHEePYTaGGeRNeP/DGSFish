@@ -26,7 +26,7 @@ namespace Assets.Scripts
         public void onValueChange(Int32 data)
         {
             string fishdata = _dropdown.options[_dropdown.value].text;
-            Fish fish = GameSystem.Instance.CurrentPlayer.Fish.First(pair => pair.Key.ToString() == fishdata).Key;
+            Fish fish = GameSystem.Instance.CurrentPlayer.Fish.First(pair => pair.Item1.ToString() == fishdata).Item1;
             GameSystem.Instance.CurrentPlayer.selectedFish = fish;
         }
 
