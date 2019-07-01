@@ -496,6 +496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneToLoad: 1
+  startFish: {fileID: 11400000, guid: 6854de5f766f1184b94d03360edb9e0a, type: 2}
 --- !u!114 &604338981
 MonoBehaviour:
   m_ObjectHideFlags: 0
