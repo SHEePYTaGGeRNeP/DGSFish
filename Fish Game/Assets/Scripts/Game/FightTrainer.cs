@@ -12,6 +12,9 @@ public class FightTrainer : MonoBehaviour
     public Trainer Opponent { get; private set; }
     public Dropdown _Dropdown;
 
+    [SerializeField]
+    private MenuHandler _menuHandler;
+
     public void fightTrainer()
     {
         Opponent = choseRandomTrainer();
@@ -50,6 +53,8 @@ public class FightTrainer : MonoBehaviour
         }
         else
             ConsoleLog.AddToLog($"{GameSystem.Instance.CurrentPlayer.Name} has won the game!");
+
+        this._menuHandler.BackToMenu();
         GameSystem.Instance.NextPlayer();
     }
 
