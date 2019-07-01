@@ -29,6 +29,10 @@ namespace Assets.Scripts.Game
         public uint AmountOfDamageDie => this._amountOfDamageDie;
 
         [SerializeField]
+        private string _attackName;
+        public string AttackName => this._attackName;
+
+        [SerializeField]
         private uint _catchDie;
         public uint CatchDie => this._catchDie;
 

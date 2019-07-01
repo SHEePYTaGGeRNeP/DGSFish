@@ -24,7 +24,7 @@ namespace Assets.Scripts.Game
             Fish[] type = this._commonFish;
             float value = Random.Range(0, 101);
             int extraAdd = 0;
-            int index = 0;
+            int index;
             for (index = 0; index < _chancePerType.Length; index++)
             {
                 if (value < _chancePerType[index] + extraAdd)
