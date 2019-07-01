@@ -9,12 +9,10 @@ namespace Assets.Scripts
         [SerializeField]
         private FishHolder _fishHolder;
 
-        [SerializeField]
-        private ConsoleLog _log;
         public void Test()
         {
             this._fishHolder.RandomFish();
-            this._log.AddToLog("Hello " + Time.time);
+            ConsoleLog.AddToLog("Hello " + Time.time);
         }
     }
 }
