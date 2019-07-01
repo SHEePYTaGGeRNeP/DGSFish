@@ -12,14 +12,15 @@ namespace Assets.Scripts.Game
 
         private List<FisherPlayer> _players = new List<FisherPlayer>();
         private int _currentPlayerIndex;
-        public FisherPlayer CurrentPlayer => this._players[_currentPlayerIndex];
+        public FisherPlayer CurrentPlayer => this._players[this._currentPlayerIndex];
+
         public Fish startFish;
-        
+
         public static GameSystem Instance { get; private set; }
 
         public event EventHandler<FisherPlayer> NewPlayerTurn;
 
-        public enum GameState { Menu, Catching, Battling}
+        public enum GameState { Menu, Catching, Battling }
         public GameState CurrentState { get; set; }
 
         private void Awake()
@@ -31,19 +32,22 @@ namespace Assets.Scripts.Game
         public void StartGame(int nrOfPlayers)
         {
             Debug.Log($"Starting game with {nrOfPlayers} player(s).");
-            Instance._players.Clear();
+            this._players.Clear();
             for (int i = 0; i < nrOfPlayers; i++)
-                Instance._players.Add(new FisherPlayer($"Player {i + 1}", startFish));
-            Instance._currentPlayerIndex = -1;
-            SceneManager.LoadScene(Instance._sceneToLoad);
-            Instance.NextPlayer();
+                this._players.Add(new FisherPlayer($"Player {i + 1}", startFish));
+            this._currentPlayerIndex = 0;
+            SceneManager.LoadScene(this._sceneToLoad);
         }
 
+        public void CallNewPlayerTurn()
+        {
+            Debug.Log($"It's {this.CurrentPlayer}'s turn!");
+            this.NewPlayerTurn?.Invoke(Instance, Instance.CurrentPlayer);
+        }
         public void NextPlayer()
         {
-            Instance._currentPlayerIndex = Mathf.Clamp(_currentPlayerIndex + 1, 0, _players.Count);
-            Debug.Log($"It's {Instance.CurrentPlayer}'s turn!");
-            Instance.NewPlayerTurn?.Invoke(Instance, Instance.CurrentPlayer);
+            this._currentPlayerIndex = (Instance._currentPlayerIndex + 1) % Instance._players.Count;
+            this.CallNewPlayerTurn();
         }
     }
 }

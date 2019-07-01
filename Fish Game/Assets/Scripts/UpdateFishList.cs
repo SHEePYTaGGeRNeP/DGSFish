@@ -12,7 +12,7 @@ namespace Assets.Scripts
     {
         private Dropdown _dropdown;
 
-        void Start()
+        void Awake()
         {
             _dropdown = GetComponent<Dropdown>();
             GameSystem.Instance.NewPlayerTurn += Instance_NewPlayerTurn;
