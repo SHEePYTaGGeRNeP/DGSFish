@@ -12,7 +12,6 @@ public class CatchFish : MonoBehaviour
     public FishHolder fishHolder;
 
     private GameObject DefaultScreen;
-    private GameObject FightEvent;
     private GameObject CatchFishEvent;
     private Dropdown dropdownCards;
 
@@ -22,17 +21,14 @@ public class CatchFish : MonoBehaviour
     private void Awake()
     {
         DefaultScreen = GameObject.Find("Canvas");
-        FightEvent = GameObject.Find("FightCanvas");
         CatchFishEvent = GameObject.Find("CatchFishCanvas");
         dropdownCards = GameObject.Find("Dropdown").GetComponent<Dropdown>();
 
         CatchFishEvent.SetActive(false);
-        FightEvent.SetActive(false);
     }
     public void StartCatchEvent()
     {
         DefaultScreen.SetActive(false);
-        FightEvent.SetActive(false);
         CatchFishEvent.SetActive(true);
 
         SetupFish();

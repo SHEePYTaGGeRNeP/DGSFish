@@ -31,7 +31,7 @@ public class FightTrainer : MonoBehaviour
     {
         string name = _Dropdown.options[_Dropdown.value].text;
         List<DamageCard> cards = new List<DamageCard>();
-        if (name == "NONE")
+        if (name != "NONE")
         {
             DamageCard y = (DamageCard) GameSystem.Instance.CurrentPlayer.Cards.First(x => x.Name == name);
             if (y) cards.Add(y);
@@ -42,6 +42,7 @@ public class FightTrainer : MonoBehaviour
     
     public void resolveFight(uint playerDamage, IEnumerable<DamageCard> playedCards)
     {
+        Debug.Log("Resolving");
         foreach (DamageCard card in playedCards)
             GameSystem.Instance.CurrentPlayer.RemoveCard(card);
         uint extraPlayerDamage = (uint)playedCards.Sum(x => x.Damage);
@@ -59,6 +60,7 @@ public class FightTrainer : MonoBehaviour
         else
             ConsoleLog.AddToLog($"{GameSystem.Instance.CurrentPlayer.Name} has won the game!");
 
+        Debug.Log("BACK2mENU");
         this._menuHandler.BackToMenu();
         GameSystem.Instance.NextPlayer();
     }
