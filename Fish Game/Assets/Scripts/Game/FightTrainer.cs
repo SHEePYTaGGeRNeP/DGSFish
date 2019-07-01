@@ -14,7 +14,11 @@ public class FightTrainer : MonoBehaviour
 
     [SerializeField]
     private MenuHandler _menuHandler;
-
+    [SerializeField]
+    private Text _opponentText;
+    [SerializeField]
+    private Text _playerText;
+    
     public void fightTrainer()
     {
         Opponent = choseRandomTrainer();
