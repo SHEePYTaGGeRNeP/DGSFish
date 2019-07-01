@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Nurse Shark
   m_EditorClassIdentifier: 
   _name: Nurse Shark
-  _image: {fileID: 0}
+  _image: {fileID: 21300000, guid: a0bf49f573c24b244adcedb6b107c775, type: 3}
   _baseDamage: 0
   _damageDie: 10
   _amountOfDamageDie: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fire fish
   m_EditorClassIdentifier: 
   _name: Fire fish
-  _image: {fileID: 0}
+  _image: {fileID: 21300000, guid: a0bf49f573c24b244adcedb6b107c775, type: 3}
   _baseDamage: 10
   _damageDie: 6
   _amountOfDamageDie: 3
