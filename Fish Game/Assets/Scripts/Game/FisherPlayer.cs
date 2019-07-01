@@ -6,11 +6,17 @@ using UnityEngine;
 
 namespace Assets.Scripts.Game
 {
-    public class FisherPlayer : MonoBehaviour
+    public class FisherPlayer
     {
         /// <summary>Fish/IsKO</summary>
         public List<KeyValuePair<Fish, bool>> Fish = new List<KeyValuePair<Fish, bool>>();
 
+        public string Name { get; }
+
+        public FisherPlayer(string name)
+        {
+            this.Name = name;
+        }
 
         public void AddFish(Fish fish)
         {
