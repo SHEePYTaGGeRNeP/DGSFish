@@ -46,7 +46,7 @@ namespace Assets.Scripts.Game
 
         public override string ToString()
         {
-            return $"{this.Name} d{DamageDie}+{BaseDamage}";
+            return $"{this.Name} {AmountOfDamageDie}d{DamageDie}+{BaseDamage}";
         }
 
     }
