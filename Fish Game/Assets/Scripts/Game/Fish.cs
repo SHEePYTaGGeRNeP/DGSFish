@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 namespace Assets.Scripts.Game
 {
@@ -15,26 +16,27 @@ namespace Assets.Scripts.Game
         private Sprite _image;
         public Sprite Image => this._image;
 
-        public bool IsKO { get; set; }
-
         [SerializeField]
         private int _baseDamage;
         public int BaseDamage => this._baseDamage;
 
         [SerializeField]
-        private Die _damageDie;
-        public Die DamageDie => this._damageDie;
+        private int _damageDie;
+        public int DamageDie => this._damageDie;
 
         [SerializeField]
         private uint _amountOfDamageDie;
         public uint AmountOfDamageDie => this._amountOfDamageDie;
 
         [SerializeField]
-        private Die _catchDie;
-        public Die CatchDie => this._catchDie;
+        private int _catchDie;
+        public int CatchDie => this._catchDie;
 
         [SerializeField]
         private int[] _catchValues;
         public int[] CatchValues => this._catchValues;
+
+        public bool CatchSuccess(int dieValue) => this.CatchValues.Contains(dieValue);
+        
     }
 }
