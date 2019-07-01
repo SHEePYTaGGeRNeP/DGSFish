@@ -34,9 +34,27 @@ public class CatchFish : MonoBehaviour
         GameObject card = GameObject.Find("FishCard");
         card.transform.GetChild(0).GetComponent<Image>().sprite = fishToCatch.Image;
         card.transform.GetChild(1).GetComponent<Text>().text = fishToCatch.Name;
-        card.transform.GetChild(2).GetComponent<Text>().text = "empty";
+        card.transform.GetChild(2).GetComponent<Image>().color = ConvertGradeToColor(fishHolder.GradeToInt(fishToCatch));
         card.transform.GetChild(3).GetComponent<Text>().text = fishToCatch.BaseDamage.ToString();
         card.transform.GetChild(4).GetComponent<Text>().text = fishToCatch.AmountOfDamageDie + "d" + fishToCatch.DamageDie;
+    }
+    private Color ConvertGradeToColor(uint grade)
+    {
+        switch (grade)
+        {
+            case 0:
+                return new Color(0, 0, 0, 0);
+            case 1:
+                return new Color(0, 1, 0, 1);
+            case 2:
+                return new Color(1, 0.2f, 0.2f, 1);
+            case 3:
+                return new Color(0.6f, 0, 0.8f, 1);
+            case 4:
+                return new Color(1, 1, 0, 1);
+            default:
+                return new Color(0, 0, 0, 0);
+        }
     }
     public void TryCatchFish()
     {

@@ -56,9 +56,55 @@ namespace Assets.Scripts.Game
                 default: return "Common";
                 case 1: return "Uncommon";
                 case 2: return "Rare";
-                case 3: return "Very rare";
+                case 3: return "Elite";
                 case 4: return "Legendary";
             }
+        }
+        public uint GradeToInt(Fish fish)
+        {
+            uint grade = 0;
+
+            for (int i = 0; i < _commonFish.Length; i++)
+            {
+                if (_commonFish[i] == fish)
+                {
+                    grade = 0;
+                }
+            }
+
+            for (int i = 0; i < _uncommonFish.Length; i++)
+            {
+                if (_uncommonFish[i] == fish)
+                {
+                    grade = 1;
+                }
+            }
+
+            for (int i = 0; i < _rareFish.Length; i++)
+            {
+                if (_rareFish[i] == fish)
+                {
+                    grade = 2;
+                }
+            }
+
+            for (int i = 0; i < _veryRareFish.Length; i++)
+            {
+                if (_veryRareFish[i] == fish)
+                {
+                    grade = 3;
+                }
+            }
+
+            for (int i = 0; i < _legendaryFish.Length; i++)
+            {
+                if (_legendaryFish[i] == fish)
+                {
+                    grade = 4;
+                }
+            }
+
+            return grade;
         }
     }
 }
