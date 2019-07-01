@@ -37,6 +37,11 @@ namespace Assets.Scripts.Game
         public uint[] CatchValues => this._catchValues;
 
         public bool CatchSuccess(uint dieValue) => this.CatchValues.Contains(dieValue);
-        
+
+        public override string ToString()
+        {
+            return $"{this.Name} d{DamageDie}+{BaseDamage}";
+        }
+
     }
 }

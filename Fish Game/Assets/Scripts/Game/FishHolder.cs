@@ -24,16 +24,19 @@ namespace Assets.Scripts.Game
             Fish[] type = this._commonFish;
             float value = Random.Range(0, 101);
             int extraAdd = 0;
-            for (int i = 0; i < _chancePerType.Length; i++)
+            int index = 0;
+            for (index = 0; index < _chancePerType.Length; index++)
             {
-                if (value < _chancePerType[i] + extraAdd)
+                if (value < _chancePerType[index] + extraAdd)
                 {
-                    type = IndexToType(i);
+                    type = IndexToType(index);
                     break;
                 }
-                extraAdd += _chancePerType[i];
+                extraAdd += _chancePerType[index];
             }
-            return type[Random.Range(0, type.Length)];
+            Fish f = type[Random.Range(0, type.Length)];
+            Debug.Log($"Random fish from set: {index} {f}");
+            return f;
         }
         private Fish[] IndexToType(int index)
         {
