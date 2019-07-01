@@ -45,7 +45,7 @@ namespace Assets.Scripts
         {
             uint total = 0;
             for (int i = 0; i < nrOfDice; i++)
-                total += (uint)UnityEngine.Random.Range(1, (int)nrOfSides); ;
+                total += (uint)UnityEngine.Random.Range(1, (int)nrOfSides + 1); ;
             return total;
         }
 
