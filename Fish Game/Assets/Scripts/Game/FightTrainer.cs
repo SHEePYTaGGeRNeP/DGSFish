@@ -3,13 +3,14 @@ using Assets.Scripts.Game;
 using Assets.Scripts.Game.Cards;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class FightTrainer : MonoBehaviour
 {
     [SerializeField]
     private List<Trainer> _trainers = new List<Trainer>();
     public Trainer Opponent { get; private set; }
-
+    public Dropdown _Dropdown;
 
     public void fightTrainer()
     {
@@ -17,9 +18,21 @@ public class FightTrainer : MonoBehaviour
         Debug.Log(Opponent.name);
         Debug.Log(Opponent.fish);
         ConsoleLog.AddToLog($"You're fighting {Opponent.name} with a {Opponent.fish.name}.");
-        resolveFight(rollPlayer(), new DamageCard[0]);
     }
 
+    public void resolveClick()
+    {
+        string name = _Dropdown.options[_Dropdown.value].text;
+        List<DamageCard> cards = new List<DamageCard>();
+        if (name == "NONE")
+        {
+            DamageCard y = (DamageCard) GameSystem.Instance.CurrentPlayer.Cards.First(x => x.Name == name);
+            if (y) cards.Add(y);
+        }
+
+        resolveFight(rollPlayer(), cards );
+    }
+    
     public void resolveFight(uint playerDamage, IEnumerable<DamageCard> playedCards)
     {
         foreach (DamageCard card in playedCards)
