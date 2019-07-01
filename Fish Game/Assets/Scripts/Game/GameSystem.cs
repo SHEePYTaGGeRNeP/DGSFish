@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +7,9 @@ namespace Assets.Scripts.Game
 {
     public class GameSystem : MonoBehaviour
     {
+        [SerializeField]
+        private int _sceneToLoad = 1;
+
         private List<FisherPlayer> _players = new List<FisherPlayer>();
         private int _currentPlayerIndex;
         public FisherPlayer CurrentPlayer => this._players[_currentPlayerIndex];
@@ -17,30 +17,33 @@ namespace Assets.Scripts.Game
         
         public static GameSystem Instance { get; private set; }
 
-        [SerializeField]
-        private int _sceneToLoad = 1;
+        public event EventHandler<FisherPlayer> NewPlayerTurn;
+
+        public enum GameState { Menu, Catching, Battling}
+        public GameState CurrentState { get; set; }
 
         private void Awake()
         {
-            Instance = this;
+            if (Instance != null)
+                Instance = this;
         }
 
         public void StartGame(int nrOfPlayers)
         {
             Debug.Log($"Starting game with {nrOfPlayers} player(s).");
+            Instance._players.Clear();
             for (int i = 0; i < nrOfPlayers; i++)
-            {
-                FisherPlayer player = new FisherPlayer($"Player {i + 1}", startFish);
-                _players.Add(player);
-            }
-
-            this._currentPlayerIndex = 0;
-            SceneManager.LoadScene(this._sceneToLoad);
+                Instance._players.Add(new FisherPlayer($"Player {i + 1}", startFish));
+            Instance._currentPlayerIndex = -1;
+            SceneManager.LoadScene(Instance._sceneToLoad);
+            Instance.NextPlayer();
         }
 
         public void NextPlayer()
         {
-            this._currentPlayerIndex = Mathf.Clamp(_currentPlayerIndex + 1, 0, _players.Count);
+            Instance._currentPlayerIndex = Mathf.Clamp(_currentPlayerIndex + 1, 0, _players.Count);
+            Debug.Log($"It's {Instance.CurrentPlayer}'s turn!");
+            Instance.NewPlayerTurn?.Invoke(Instance, Instance.CurrentPlayer);
         }
     }
 }

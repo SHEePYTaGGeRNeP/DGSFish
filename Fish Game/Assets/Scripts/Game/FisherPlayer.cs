@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Game.Cards;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,11 +17,14 @@ namespace Assets.Scripts.Game
 
         public string Name { get; }
 
+        public List<ICard> Cards { get; }
+
         public FisherPlayer(string name, Fish startFish)
         {
             this.Name = name;
             selectedFish = startFish;
             AddFish(startFish);
+            this.Cards = new List<ICard>();
         }
 
         public void AddFish(Fish fish)

@@ -12,7 +12,14 @@
           <e p="Die.cs" t="Include" />
           <e p="DoNotDestroy.cs" t="Include" />
           <e p="Game" t="Include">
+            <e p="Cards" t="Include">
+              <e p="Card.cs" t="Include" />
+              <e p="CatchingCard.cs" t="Include" />
+              <e p="DamageCard.cs" t="Include" />
+              <e p="ICard.cs" t="Include" />
+            </e>
             <e p="CatchFish.cs" t="Include" />
+            <e p="ConsoleLog.cs" t="Include" />
             <e p="FightTrainer.cs" t="Include" />
             <e p="Fish.cs" t="Include" />
             <e p="FisherPlayer.cs" t="Include" />
