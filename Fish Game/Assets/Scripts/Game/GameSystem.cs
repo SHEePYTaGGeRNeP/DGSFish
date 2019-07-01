@@ -20,7 +20,7 @@ namespace Assets.Scripts.Game
 
         public event EventHandler<FisherPlayer> NewPlayerTurn;
 
-        public enum GameState { Menu, Catching, Battling }
+        public enum GameState { Menu, Catching, Battling, FindCards }
         public GameState CurrentState { get; set; }
 
         private void Awake()

@@ -6,11 +6,13 @@ public class FightTrainer : MonoBehaviour
 {
     [SerializeField]
     private List<Trainer> _trainers = new List<Trainer>();
+    public Trainer Opponent { get; private set; }
+
 
     public void fightTrainer()
     {
-        Trainer opponent = choseRandomTrainer();
-        Debug.Log($"Your fighting {opponent.name}.\nHe has a {opponent.fish.name}.");
+        Opponent = choseRandomTrainer();
+        Debug.Log($"Your fighting {Opponent.name}.\nHe has a {Opponent.fish.name}.");
         //resolveFight(rollPlayer(), opponent);
     }
 

@@ -20,15 +20,19 @@ namespace Assets.Scripts.Game
         private Queue<string> _log;
         private Queue<string> _queuedItems = new Queue<string>();
 
+        private static ConsoleLog _instance;
+
         private void Awake()
         {
+            if (_instance == null)
+                _instance = this;
             this._text = this.GetComponent<Text>();
             this._log = new Queue<string>(this._maxRows);
         }
 
-        public void AddToLog(string message)
+        public static void AddToLog(string message)
         {
-            this._queuedItems.Enqueue(message);
+            _instance._queuedItems.Enqueue(message);
         }
 
         private void Update()
