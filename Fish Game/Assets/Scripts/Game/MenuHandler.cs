@@ -15,9 +15,6 @@ namespace Assets.Scripts.Game
         [SerializeField]
         private GameObject _battleCanvas;
 
-        [SerializeField]
-        private GameObject _cardsCanvas;
-
         public void OpenCatchFish()
         {
             this._catchCanvas.SetActive(true);
@@ -28,17 +25,11 @@ namespace Assets.Scripts.Game
             this._battleCanvas.SetActive(true);
             GameSystem.Instance.CurrentState = GameSystem.GameState.Battling;
         }
-        public void OpenFindCards()
-        {
-            this._catchCanvas.SetActive(true);
-            GameSystem.Instance.CurrentState = GameSystem.GameState.FindCards;
-        }
 
         public void BackToMenu()
         {
             this._catchCanvas.SetActive(false);
             this._battleCanvas.SetActive(false);
-            this._cardsCanvas.SetActive(false);
             GameSystem.Instance.CurrentState = GameSystem.GameState.Menu;
         }
     }
