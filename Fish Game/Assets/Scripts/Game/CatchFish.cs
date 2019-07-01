@@ -11,17 +11,24 @@ public class CatchFish : MonoBehaviour
     public void TryCatchFish()
     {
         Fish fish = fishHolder.RandomFish();
+        uint RollNumber = Die.Roll(fish.CatchDie);
 
-        Debug.Log("You tried cathing a fish!");
-
-        if (fish.CatchSuccess(Die.Roll(fish.CatchDie)))
+        Debug.Log("Your roll:" + RollNumber);
+        string required = "Required roll: ";
+        for (int i = 0; i < fish.CatchValues.Length; i++)
         {
-            Debug.Log("You caught " + fish.Name + "!");
+            required += fish.CatchValues[i] + "/";
+        }
+        Debug.Log(required);
+
+        if (fish.CatchSuccess(RollNumber))
+        {
+            Debug.Log("<color=blue>You caught " + fish.Name + "!</color>");
             GameSystem.Instance.CurrentPlayer.AddFish(fish);
         }
         else
         {
-            Debug.Log("Despite your best efforts, you suck!");
+            Debug.Log("<color=maroon>Despite your best efforts " + fish.Name + " got away!</color>");
         }
     }
 }
