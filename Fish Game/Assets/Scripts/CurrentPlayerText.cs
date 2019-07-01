@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Game;
+using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
-    [RequireComponent(typeof(TextMesh))]
+    [RequireComponent(typeof(Text))]
     public class CurrentPlayerText : MonoBehaviour
     {
-        private TextMesh _textMesh;
+        private Text _textMesh;
 
         private void Awake()
         {
-            this._textMesh = this.GetComponent<TextMesh>();
+            this._textMesh = this.GetComponent<Text>();
         }
 
         private void Start()

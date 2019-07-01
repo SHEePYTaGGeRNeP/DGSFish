@@ -22,4 +22,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8d311feb25d0ea94482c6000b982b0cd, type: 2}
   _legendaryFish:
   - {fileID: 11400000, guid: 8d311feb25d0ea94482c6000b982b0cd, type: 2}
-  _chancePerType: 0100000001000000010000000100000063000000
+  _chancePerType: 320000001e0000000f0000000500000063000000

@@ -26,15 +26,16 @@ namespace Assets.Scripts.Game
 
         public void StartGame(int nrOfPlayers)
         {
+            Debug.Log($"Starting game with {nrOfPlayers} player(s).");
             for (int i = 0; i < nrOfPlayers; i++)
                 _players.Add(new FisherPlayer($"Player {i + 1}"));
             this._currentPlayerIndex = 0;
+            SceneManager.LoadScene(this._sceneToLoad);
         }
 
         public void NextPlayer()
         {
             this._currentPlayerIndex = Mathf.Clamp(_currentPlayerIndex + 1, 0, _players.Count);
-            SceneManager.LoadScene(this._sceneToLoad);
         }
     }
 }
