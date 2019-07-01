@@ -18,5 +18,5 @@ MonoBehaviour:
   _damageDie: 4
   _amountOfDamageDie: 3
   _attackName: Decapitate
-  _catchDie: 20
-  _catchValues: 1300000014000000
+  _catchDie: 12
+  _catchValues: 08000000090000000a0000000b000000

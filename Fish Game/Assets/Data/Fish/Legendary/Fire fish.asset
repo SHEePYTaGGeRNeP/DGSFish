@@ -18,5 +18,5 @@ MonoBehaviour:
   _damageDie: 6
   _amountOfDamageDie: 3
   _attackName: Blind
-  _catchDie: 20
-  _catchValues: 120000001300000014000000
+  _catchDie: 12
+  _catchValues: 060000000700000008000000090000000a000000

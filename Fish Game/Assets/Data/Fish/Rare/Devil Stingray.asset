@@ -19,4 +19,4 @@ MonoBehaviour:
   _amountOfDamageDie: 1
   _attackName: Sting
   _catchDie: 6
-  _catchValues: 06000000
+  _catchValues: 040000000500000006000000

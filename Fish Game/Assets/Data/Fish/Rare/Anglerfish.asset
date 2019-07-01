@@ -19,4 +19,4 @@ MonoBehaviour:
   _amountOfDamageDie: 2
   _attackName: Chomp
   _catchDie: 10
-  _catchValues: 0700000008000000090000000a000000
+  _catchValues: 0700000008000000090000000a00000006000000

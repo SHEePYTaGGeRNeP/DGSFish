@@ -19,4 +19,4 @@ MonoBehaviour:
   _amountOfDamageDie: 1
   _attackName: Slam On
   _catchDie: 8
-  _catchValues: 0700000008000000
+  _catchValues: 0700000008000000060000000500000004000000

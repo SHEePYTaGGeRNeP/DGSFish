@@ -19,4 +19,4 @@ MonoBehaviour:
   _amountOfDamageDie: 1
   _attackName: Sabre
   _catchDie: 8
-  _catchValues: 05000000060000000700000008000000
+  _catchValues: 050000000600000007000000080000000400000003000000

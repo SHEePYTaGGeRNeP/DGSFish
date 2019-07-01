@@ -19,4 +19,4 @@ MonoBehaviour:
   _amountOfDamageDie: 2
   _attackName: Shock
   _catchDie: 12
-  _catchValues: 0a0000000b0000000c000000
+  _catchValues: 0100000002000000030000000400000005000000

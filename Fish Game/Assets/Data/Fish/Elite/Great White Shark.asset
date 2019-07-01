@@ -18,5 +18,5 @@ MonoBehaviour:
   _damageDie: 6
   _amountOfDamageDie: 2
   _attackName: Maul
-  _catchDie: 12
-  _catchValues: 0b0000000c000000
+  _catchDie: 10
+  _catchValues: 070000000800000009000000

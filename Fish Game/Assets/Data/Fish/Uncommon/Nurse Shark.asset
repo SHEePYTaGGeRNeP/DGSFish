@@ -19,4 +19,4 @@ MonoBehaviour:
   _amountOfDamageDie: 1
   _attackName: Bone Breaker
   _catchDie: 12
-  _catchValues: 090000000a0000000b0000000c000000
+  _catchValues: 090000000a0000000b0000000c00000008000000

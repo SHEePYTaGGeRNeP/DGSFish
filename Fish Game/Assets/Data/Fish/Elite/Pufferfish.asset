@@ -18,5 +18,5 @@ MonoBehaviour:
   _damageDie: 6
   _amountOfDamageDie: 2
   _attackName: Blow Up
-  _catchDie: 20
-  _catchValues: 1100000012000000130000001400000010000000
+  _catchDie: 12
+  _catchValues: 0500000006000000070000000800000009000000

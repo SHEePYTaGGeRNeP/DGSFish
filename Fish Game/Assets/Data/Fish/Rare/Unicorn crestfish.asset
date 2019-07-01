@@ -19,4 +19,4 @@ MonoBehaviour:
   _amountOfDamageDie: 2
   _attackName: Magical Penetration
   _catchDie: 10
-  _catchValues: 090000000a000000
+  _catchValues: 090000000a0000000800000007000000

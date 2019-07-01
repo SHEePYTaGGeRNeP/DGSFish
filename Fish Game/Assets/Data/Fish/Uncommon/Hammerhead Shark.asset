@@ -19,4 +19,4 @@ MonoBehaviour:
   _amountOfDamageDie: 1
   _attackName: Stop. Hammertime!
   _catchDie: 12
-  _catchValues: 0a0000000b0000000c000000
+  _catchValues: 0a0000000b0000000c0000000900000008000000
