@@ -19,6 +19,7 @@ namespace Assets.Scripts.Game
 
         private List<ICard> _cards;
         public IReadOnlyCollection<ICard> Cards => this._cards;
+        public IEnumerable<ICard> PlayableCards => this._cards.Where(x => x.CanPlay());
 
         public FisherPlayer(string name, Fish startFish)
         {
