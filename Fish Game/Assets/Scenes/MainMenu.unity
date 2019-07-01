@@ -495,6 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b8a580ea7e98342a7cd6f113b0be3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startFish: {fileID: 11400000, guid: 8d311feb25d0ea94482c6000b982b0cd, type: 2}
   _sceneToLoad: 1
 --- !u!114 &604338981
 MonoBehaviour:
