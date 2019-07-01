@@ -17,8 +17,8 @@ namespace Assets.Scripts.Game
         public Sprite Image => this._image;
 
         [SerializeField]
-        private int _baseDamage;
-        public int BaseDamage => this._baseDamage;
+        private uint _baseDamage;
+        public uint BaseDamage => this._baseDamage;
 
         [SerializeField]
         private uint _damageDie;
@@ -41,6 +41,8 @@ namespace Assets.Scripts.Game
         public uint[] CatchValues => this._catchValues;
 
         public bool CatchSuccess(uint dieValue) => this.CatchValues.Contains(dieValue);
+
+        public uint RollDamage() => Die.Roll(this.AmountOfDamageDie, this.DamageDie) + this.BaseDamage;
 
         public override string ToString()
         {
