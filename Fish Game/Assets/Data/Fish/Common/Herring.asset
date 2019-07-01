@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Herring
   m_EditorClassIdentifier: 
   _name: Herring
-  _image: {fileID: 0}
+  _image: {fileID: 21300000, guid: a0bf49f573c24b244adcedb6b107c775, type: 3}
   _baseDamage: 2
   _damageDie: 4
   _amountOfDamageDie: 1
