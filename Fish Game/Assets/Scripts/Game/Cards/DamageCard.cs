@@ -12,6 +12,8 @@ namespace Assets.Scripts.Game.Cards
         [SerializeField]
         private int _damage;
 
+        public override string Description => $"For battling fish. Bonus ({_damage}).";
+
         public override bool CanPlay() => GameSystem.Instance.CurrentState == GameSystem.GameState.Battling;
 
         public override void Play()

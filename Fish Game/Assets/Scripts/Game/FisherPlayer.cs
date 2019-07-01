@@ -17,19 +17,30 @@ namespace Assets.Scripts.Game
 
         public string Name { get; }
 
-        public List<ICard> Cards { get; }
+        private List<ICard> _cards;
+        public IReadOnlyCollection<ICard> Cards => this._cards;
 
         public FisherPlayer(string name, Fish startFish)
         {
             this.Name = name;
             selectedFish = startFish;
             AddFish(startFish);
-            this.Cards = new List<ICard>();
+            this._cards = new List<ICard>();
         }
 
         public void AddFish(Fish fish)
         {
             this.Fish.Add(new KeyValuePair<Fish, bool>(fish, false));
+        }
+
+        public void AddCard(ICard card)
+        {
+            this._cards.Add(card);
+        }
+
+        public void RemoveCard(ICard card)
+        {
+            this._cards.Remove(card);
         }
 
         public IEnumerable<Fish> getAliveFishs()

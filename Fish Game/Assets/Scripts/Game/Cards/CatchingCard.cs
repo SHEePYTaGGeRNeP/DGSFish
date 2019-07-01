@@ -12,6 +12,8 @@ namespace Assets.Scripts.Game.Cards
         [SerializeField]
         private int[] _rollBonus;
 
+        public override string Description => $"For catching fish. Bonusses ({String.Join(", ", _rollBonus)}.";
+
         public override bool CanPlay() => GameSystem.Instance.CurrentState == GameSystem.GameState.Catching;
 
         public override void Play()
