@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using UnityEngine;
 namespace Assets.Scripts.Game.Cards
 {
-    [CreateAssetMenu(fileName = "DamageCard", menuName = "Cards/CreateDamageCard", order = 0)]
-    public class DamageCard : Card
+    [CreateAssetMenu(fileName = "CatchingCard", menuName = "Cards/CreateCatchingCard", order = 0)]
+    public class CatchingCard : Card
     {
         [SerializeField]
-        private int _damage;
+        private int[] _rollBonus;
 
-        public override bool CanPlay() => GameSystem.Instance.CurrentState == GameSystem.GameState.Battling;
+        public override bool CanPlay() => GameSystem.Instance.CurrentState == GameSystem.GameState.Catching;
 
         public override void Play()
         {
