@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Game
 {
-    class GameSystem : MonoBehaviour
+    public class GameSystem : MonoBehaviour
     {
         private List<FisherPlayer> _players = new List<FisherPlayer>();
         private int _currentPlayerIndex;
