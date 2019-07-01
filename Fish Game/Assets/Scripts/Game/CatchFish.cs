@@ -71,7 +71,6 @@ public class CatchFish : MonoBehaviour
         if (fishToCatch.CatchSuccess(RollNumber))
         {
             ConsoleLog.AddToLog($"<color=blue>{GameSystem.Instance.CurrentPlayer.Name} caught a " + fishToCatch.Name + "!</color>");
-            Debug.Log($"<color=blue>{GameSystem.Instance.CurrentPlayer.Name} caught a " + fishToCatch.Name + "!</color>");
             GameSystem.Instance.CurrentPlayer.AddFish(fishToCatch);
             EndCatchEvent();
         }
