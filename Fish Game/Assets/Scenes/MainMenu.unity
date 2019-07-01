@@ -495,7 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b8a580ea7e98342a7cd6f113b0be3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneToLoad: 1
+  _sceneToLoad: 2
   startFish: {fileID: 11400000, guid: 6854de5f766f1184b94d03360edb9e0a, type: 2}
 --- !u!114 &604338981
 MonoBehaviour:
@@ -1021,7 +1021,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1058760299}
   - component: {fileID: 1058760298}
-  - component: {fileID: 1058760296}
   - component: {fileID: 1058760295}
   m_Layer: 0
   m_Name: Main Camera
@@ -1032,14 +1031,6 @@ GameObject:
   m_IsActive: 1
 --- !u!81 &1058760295
 AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058760294}
-  m_Enabled: 1
---- !u!124 &1058760296
-Behaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1070,9 +1061,9 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 10
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
