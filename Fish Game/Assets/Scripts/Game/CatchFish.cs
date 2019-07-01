@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts;
 using Assets.Scripts.Game;
+using System.Linq;
+using Assets.Scripts.Game.Cards;
 
 public class CatchFish : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class CatchFish : MonoBehaviour
     private GameObject DefaultScreen;
     private GameObject FightEvent;
     private GameObject CatchFishEvent;
+    private Dropdown dropdownCards;
 
     private Fish fishToCatch;
     private uint rollNumber;
@@ -21,6 +24,7 @@ public class CatchFish : MonoBehaviour
         DefaultScreen = GameObject.Find("Canvas");
         FightEvent = GameObject.Find("FightCanvas");
         CatchFishEvent = GameObject.Find("CatchFishCanvas");
+        dropdownCards = GameObject.Find("Dropdown").GetComponent<Dropdown>();
 
         CatchFishEvent.SetActive(false);
         FightEvent.SetActive(false);
@@ -32,6 +36,7 @@ public class CatchFish : MonoBehaviour
         CatchFishEvent.SetActive(true);
 
         SetupFish();
+        SetupCards();
     }
     private void SetupFish()
     {
@@ -48,6 +53,15 @@ public class CatchFish : MonoBehaviour
         for (int i = 0; i < fishToCatch.CatchValues.Length; i++)
         {
             card.transform.GetChild(5).GetComponent<Text>().text += fishToCatch.CatchValues[i] + "/";
+        }
+    }
+    private void SetupCards()
+    {
+        dropdownCards.ClearOptions();
+        dropdownCards.options.Add(new Dropdown.OptionData("NONE"));
+        foreach (Card c in GameSystem.Instance.CurrentPlayer.PlayableCards)
+        {
+            dropdownCards.options.Add(new Dropdown.OptionData(c.Name));
         }
     }
     private Color ConvertGradeToColor(uint grade)
@@ -88,8 +102,20 @@ public class CatchFish : MonoBehaviour
     }
     private void EndCatchEvent()
     {
+        ICard thisCard = GameSystem.Instance.CurrentPlayer.Cards.FirstOrDefault(x => x.Name == dropdownCards.captionText.text);
+
+        if (null != thisCard)
+        {
+            GameSystem.Instance.CurrentPlayer.RemoveCard(thisCard);
+        }
+
         GameSystem.Instance.NextPlayer();
         DefaultScreen.SetActive(true);
         CatchFishEvent.SetActive(false);
+    }
+    public void PickACard()
+    {
+        //update roll number to be better based on picked card
+
     }
 }

@@ -30,6 +30,7 @@ public class FightTrainer : MonoBehaviour
         ConsoleLog.AddToLog($"{Opponent.name}'s {Opponent.fish.name} has an attack of {opponentDamage}.");
         ConsoleLog.AddToLog($"{Opponent.fish.name} uses {Opponent.fish.AttackName}");
         ConsoleLog.AddToLog($"{GameSystem.Instance.CurrentPlayer}'s {GameSystem.Instance.CurrentPlayer.selectedFish.name} has an attack of {finalPlayerDamage}.");
+        ConsoleLog.AddToLog($"{GameSystem.Instance.CurrentPlayer} uses {GameSystem.Instance.CurrentPlayer.selectedFish.AttackName}");
         if (opponentDamage > finalPlayerDamage)
         {
             ConsoleLog.AddToLog($"{GameSystem.Instance.CurrentPlayer}'s {GameSystem.Instance.CurrentPlayer.selectedFish.name} has been KO'd.");
