@@ -24,7 +24,7 @@ namespace Assets.Scripts.Game
             Fish[] type = this._commonFish;
             float value = Random.Range(0, 101);
             int extraAdd = 0;
-            int index = 0;
+            int index;
             for (index = 0; index < _chancePerType.Length; index++)
             {
                 if (value < _chancePerType[index] + extraAdd)
@@ -35,7 +35,7 @@ namespace Assets.Scripts.Game
                 extraAdd += _chancePerType[index];
             }
             Fish f = type[Random.Range(0, type.Length)];
-            Debug.Log($"Random fish from set: {index} {f}");
+            Debug.Log($"Random fish from set: {IndexToName(index)} {f}");
             return f;
         }
         private Fish[] IndexToType(int index)
@@ -47,6 +47,17 @@ namespace Assets.Scripts.Game
                 case 2: return this._rareFish;
                 case 3: return this._veryRareFish;
                 case 4: return this._legendaryFish;
+            }
+        }
+        private string IndexToName(int index)
+        {
+            switch (index)
+            {
+                default: return "Common";
+                case 1: return "Uncommon";
+                case 2: return "Rare";
+                case 3: return "Very rare";
+                case 4: return "Legendary";
             }
         }
     }

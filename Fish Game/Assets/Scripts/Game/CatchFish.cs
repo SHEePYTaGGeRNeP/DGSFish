@@ -6,7 +6,6 @@ using Assets.Scripts.Game;
 
 public class CatchFish : MonoBehaviour
 {
-    public FisherPlayer fisher;
     public FishHolder fishHolder;
 
     public void TryCatchFish()
@@ -18,7 +17,7 @@ public class CatchFish : MonoBehaviour
         if (fish.CatchSuccess(Die.Roll(fish.CatchDie)))
         {
             Debug.Log("You caught " + fish.Name + "!");
-            fisher.AddFish(fish);
+            GameSystem.Instance.CurrentPlayer.AddFish(fish);
         }
         else
         {
