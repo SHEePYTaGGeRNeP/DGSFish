@@ -18,6 +18,8 @@ public class CatchFish : MonoBehaviour
     {
         DefaultScreen = GameObject.Find("Canvas");
         CatchFishEvent = GameObject.Find("CatchFishCanvas");
+
+        CatchFishEvent.SetActive(false);
     }
     public void StartCatchEvent()
     {
@@ -50,12 +52,24 @@ public class CatchFish : MonoBehaviour
 
         if (fishToCatch.CatchSuccess(RollNumber))
         {
-            Debug.Log("<color=blue>You caught " + fishToCatch.Name + "!</color>");
+            ConsoleLog.AddToLog($"<color=blue>{GameSystem.Instance.CurrentPlayer.Name} caught a " + fishToCatch.Name + "!</color>");
+            Debug.Log($"<color=blue>{GameSystem.Instance.CurrentPlayer.Name} caught a " + fishToCatch.Name + "!</color>");
             GameSystem.Instance.CurrentPlayer.AddFish(fishToCatch);
+            EndCatchEvent();
         }
         else
         {
-            Debug.Log("<color=maroon>Despite your best efforts " + fishToCatch.Name + " got away!</color>");
+            ConsoleLog.AddToLog("<color=maroon>Despite your best efforts " + fishToCatch.Name + " got away!</color>");
+            EndCatchEvent();
         }
+    }
+    public void ReleaseFish()
+    {
+        EndCatchEvent();
+    }
+    private void EndCatchEvent()
+    {
+        DefaultScreen.SetActive(true);
+        CatchFishEvent.SetActive(false);
     }
 }

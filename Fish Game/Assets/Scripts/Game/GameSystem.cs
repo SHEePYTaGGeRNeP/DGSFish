@@ -20,7 +20,7 @@ namespace Assets.Scripts.Game
 
         public event EventHandler<FisherPlayer> NewPlayerTurn;
 
-        public enum GameState { Menu, Catching, Battling }
+        public enum GameState { Menu, Catching, Battling, FindCards }
         public GameState CurrentState { get; set; }
 
         private void Awake()
@@ -42,6 +42,7 @@ namespace Assets.Scripts.Game
         public void CallNewPlayerTurn()
         {
             Debug.Log($"It's {this.CurrentPlayer}'s turn!");
+            ConsoleLog.AddToLog($"It's {this.CurrentPlayer}'s turn!");
             this.NewPlayerTurn?.Invoke(Instance, Instance.CurrentPlayer);
         }
         public void NextPlayer()

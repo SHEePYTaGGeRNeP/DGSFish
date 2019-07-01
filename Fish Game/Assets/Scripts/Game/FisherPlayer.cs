@@ -11,7 +11,7 @@ namespace Assets.Scripts.Game
     public class FisherPlayer
     {
         /// <summary>Fish/IsKO</summary>
-        public List<KeyValuePair<Fish, bool>> Fish = new List<KeyValuePair<Fish, bool>>();
+        public List<(Fish, bool isKO)> Fish = new List<(Fish, bool)>();
 
         public Fish selectedFish;
 
@@ -30,7 +30,7 @@ namespace Assets.Scripts.Game
 
         public void AddFish(Fish fish)
         {
-            this.Fish.Add(new KeyValuePair<Fish, bool>(fish, false));
+            this.Fish.Add((fish, false));
         }
 
         public void AddCard(ICard card)
@@ -46,7 +46,13 @@ namespace Assets.Scripts.Game
         public IEnumerable<Fish> getAliveFishs()
         {
             List<Fish> fishes = new List<Fish>();
-            return Fish.FindAll(fish => !fish.Value).Select(pair  => pair.Key);
+            return Fish.FindAll(fish => !fish.isKO).Select(pair  => pair.Item1);
+        }
+
+        public void LostFight()
+        {
+            (Fish, bool isKO) item = this.Fish.Find(x => x.Item1 == this.selectedFish);
+            item.isKO = true;
         }
 
         public override string ToString() => this.Name;

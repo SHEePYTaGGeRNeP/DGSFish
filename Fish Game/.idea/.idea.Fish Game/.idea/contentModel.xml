@@ -25,6 +25,7 @@
             <e p="FisherPlayer.cs" t="Include" />
             <e p="FishHolder.cs" t="Include" />
             <e p="GameSystem.cs" t="Include" />
+            <e p="MenuHandler.cs" t="Include" />
             <e p="NewPlayerTurnCaller.cs" t="Include" />
             <e p="Trainer.cs" t="Include" />
           </e>
