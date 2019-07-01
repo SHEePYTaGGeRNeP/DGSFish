@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Assets.Scripts;
 using Assets.Scripts.Game;
 
@@ -8,27 +9,53 @@ public class CatchFish : MonoBehaviour
 {
     public FishHolder fishHolder;
 
+    private GameObject DefaultScreen;
+    private GameObject CatchFishEvent;
+
+    private Fish fishToCatch;
+
+    private void Awake()
+    {
+        DefaultScreen = GameObject.Find("Canvas");
+        CatchFishEvent = GameObject.Find("CatchFishCanvas");
+    }
+    public void StartCatchEvent()
+    {
+        DefaultScreen.SetActive(false);
+        CatchFishEvent.SetActive(true);
+
+        SetupFish();
+    }
+    private void SetupFish()
+    {
+        fishToCatch = fishHolder.RandomFish();
+        GameObject card = GameObject.Find("FishCard");
+        card.transform.GetChild(0).GetComponent<Image>().sprite = fishToCatch.Image;
+        card.transform.GetChild(1).GetComponent<Text>().text = fishToCatch.Name;
+        card.transform.GetChild(2).GetComponent<Text>().text = "empty";
+        card.transform.GetChild(3).GetComponent<Text>().text = fishToCatch.BaseDamage.ToString();
+        card.transform.GetChild(4).GetComponent<Text>().text = fishToCatch.AmountOfDamageDie + "d" + fishToCatch.DamageDie;
+    }
     public void TryCatchFish()
     {
-        Fish fish = fishHolder.RandomFish();
-        uint RollNumber = Die.Roll(fish.CatchDie);
+        uint RollNumber = Die.Roll(fishToCatch.CatchDie);
 
         Debug.Log("Your roll:" + RollNumber);
         string required = "Required roll: ";
-        for (int i = 0; i < fish.CatchValues.Length; i++)
+        for (int i = 0; i < fishToCatch.CatchValues.Length; i++)
         {
-            required += fish.CatchValues[i] + "/";
+            required += fishToCatch.CatchValues[i] + "/";
         }
         Debug.Log(required);
 
-        if (fish.CatchSuccess(RollNumber))
+        if (fishToCatch.CatchSuccess(RollNumber))
         {
-            Debug.Log("<color=blue>You caught " + fish.Name + "!</color>");
-            GameSystem.Instance.CurrentPlayer.AddFish(fish);
+            Debug.Log("<color=blue>You caught " + fishToCatch.Name + "!</color>");
+            GameSystem.Instance.CurrentPlayer.AddFish(fishToCatch);
         }
         else
         {
-            Debug.Log("<color=maroon>Despite your best efforts " + fish.Name + " got away!</color>");
+            Debug.Log("<color=maroon>Despite your best efforts " + fishToCatch.Name + " got away!</color>");
         }
     }
 }
