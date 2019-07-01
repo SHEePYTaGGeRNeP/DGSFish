@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Klaas
   m_EditorClassIdentifier: 
   name: Klaas van der klomp
-  fish: {fileID: 11400000, guid: 8d311feb25d0ea94482c6000b982b0cd, type: 2}
+  fish: {fileID: 11400000, guid: b0322227921d1414d919d8f6bfa1ef80, type: 2}
