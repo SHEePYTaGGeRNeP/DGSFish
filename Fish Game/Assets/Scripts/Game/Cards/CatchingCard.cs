@@ -20,7 +20,7 @@ namespace Assets.Scripts.Game.Cards
         public override void Play()
         {
             // TODO
-            
+            throw new NotImplementedException();
         }
     }
 }
