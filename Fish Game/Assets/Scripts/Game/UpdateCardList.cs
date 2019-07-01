@@ -22,8 +22,7 @@ public class UpdateCardList : MonoBehaviour
     }
 
     public void updateList()
-    {
-        
+    {        
         List<Dropdown.OptionData> newItems = new List<Dropdown.OptionData>();
         newItems.Add(new Dropdown.OptionData("NONE"));
         GameSystem.Instance.CurrentPlayer.Cards.Where(card => card.CanPlay()).ToList().ForEach(card =>

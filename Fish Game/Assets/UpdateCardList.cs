@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Game;
+using Assets.Scripts.Game.Cards;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,7 @@ public class UpdateCardList : MonoBehaviour
 
     private void Instance_NewPlayerTurn(object sender, FisherPlayer e)
     {
+        Debug.Log("Updating card list");
         this.updateList();
     }
 
@@ -25,11 +27,10 @@ public class UpdateCardList : MonoBehaviour
     {
         List<Dropdown.OptionData> newItems = new List<Dropdown.OptionData>();
         newItems.Add(new Dropdown.OptionData("NONE"));
-        GameSystem.Instance.CurrentPlayer.Cards.Where(card => card.CanPlay()).ToList().ForEach(card =>
+        foreach (ICard card in GameSystem.Instance.CurrentPlayer.PlayableCards)
         {
             newItems.Add(new Dropdown.OptionData(card.Name));
-            //            card.
-        });
+        }
         _dropdown.options = newItems;
     }
 }

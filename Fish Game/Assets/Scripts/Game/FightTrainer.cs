@@ -18,6 +18,10 @@ public class FightTrainer : MonoBehaviour
     private Text _opponentText;
     [SerializeField]
     private Text _playerText;
+    [SerializeField]
+    private GameObject updateCardList;
+
+    private uint _playerRoll;
     
     public void fightTrainer()
     {
@@ -25,6 +29,11 @@ public class FightTrainer : MonoBehaviour
         Debug.Log(Opponent.name);
         Debug.Log(Opponent.fish);
         ConsoleLog.AddToLog($"You're fighting {Opponent.name} with a {Opponent.fish.name}.");
+        this._playerRoll = rollPlayer();
+        this._playerText.text = $"Player: {_playerRoll}";
+        this._opponentText.text = $"Opponent: {Opponent.fish.AmountOfDamageDie}d{Opponent.fish.DamageDie}+{Opponent.fish.BaseDamage}";
+        Debug.Log("State " + GameSystem.Instance.CurrentState);
+        //this.updateCardList.GetComponent<UpdateCardList>().updateList();
     }
 
     public void resolveClick()
@@ -37,7 +46,7 @@ public class FightTrainer : MonoBehaviour
             if (y) cards.Add(y);
         }
 
-        resolveFight(rollPlayer(), cards );
+        resolveFight(this._playerRoll, cards );
     }
     
     public void resolveFight(uint playerDamage, IEnumerable<DamageCard> playedCards)

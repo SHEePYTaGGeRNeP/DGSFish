@@ -2077,8 +2077,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 186646fa596d5064580a9f9e5417847a, type: 2}
   _Dropdown: {fileID: 103624103}
   _menuHandler: {fileID: 714880332}
-  _opponentText: {fileID: 0}
-  _playerText: {fileID: 0}
+  _opponentText: {fileID: 1810983156}
+  _playerText: {fileID: 911299103}
+  updateCardList: {fileID: 103624102}
 --- !u!114 &714880335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5840,7 +5841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxRows: 6
-  _refreshRate: 1
+  _refreshRate: 0.25
 --- !u!114 &1879637378
 MonoBehaviour:
   m_ObjectHideFlags: 0
