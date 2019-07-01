@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Assets.Scripts.Game;
+using Assets.Scripts.Game.Cards;
 using UnityEngine;
+using System.Linq;
 
 public class FightTrainer : MonoBehaviour
 {
@@ -12,15 +14,25 @@ public class FightTrainer : MonoBehaviour
     public void fightTrainer()
     {
         Opponent = choseRandomTrainer();
-        Debug.Log($"Your fighting {Opponent.name}.\nHe has a {Opponent.fish.name}.");
+        ConsoleLog.AddToLog($"Your fighting {Opponent.name} with a {Opponent.fish.name}.");
         //resolveFight(rollPlayer(), opponent);
     }
 
-    public void resolveFight(uint playerDamage, Trainer opp)
+    public void resolveFight(uint playerDamage, IEnumerable<DamageCard> playedCards)
     {
-        uint opponentDmg = opp.fish.RollDamage();
-
-
+        foreach (DamageCard card in playedCards)
+            GameSystem.Instance.CurrentPlayer.RemoveCard(card);
+        uint extraPlayerDamage = (uint)playedCards.Sum(x => x.Damage);
+        uint finalPlayerDamage = playerDamage + extraPlayerDamage;
+        uint opponentDamage = Opponent.fish.RollDamage();
+        ConsoleLog.AddToLog($"{Opponent.name}'s {Opponent.fish.name} has an attack of {opponentDamage}.");
+        if (opponentDamage > finalPlayerDamage)
+        {
+            ConsoleLog.AddToLog($"{GameSystem.Instance.CurrentPlayer}'s {GameSystem.Instance.CurrentPlayer.selectedFish.name} has been KO'd.");
+            GameSystem.Instance.CurrentPlayer.LostFight();
+        }
+        else
+            ConsoleLog.AddToLog($"{GameSystem.Instance.CurrentPlayer.Name} has won the game!");
         GameSystem.Instance.NextPlayer();
     }
 
@@ -28,10 +40,10 @@ public class FightTrainer : MonoBehaviour
     {
         return GameSystem.Instance.CurrentPlayer.selectedFish.RollDamage();
     }
-    
+
     private Trainer choseRandomTrainer()
     {
-        return _trainers[Random.Range(0, _trainers.Count-1)];
+        return _trainers[Random.Range(0, _trainers.Count - 1)];
     }
 }
 

@@ -11,6 +11,7 @@ namespace Assets.Scripts.Game.Cards
     {
         [SerializeField]
         private int[] _rollBonus;
+        public int[] RollBonus => this. _rollBonus;
 
         public override string Description => $"For catching fish. Bonusses ({String.Join(", ", _rollBonus)}.";
 
