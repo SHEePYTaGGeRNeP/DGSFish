@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,10 +10,15 @@ namespace Assets.Scripts.Game
     {
         [SerializeField]
         private int _maxRows = 6;
+        [SerializeField]
+        private float _refreshRate = 1f;
+
+        private float _lastAdd;
 
         private Text _text;
 
         private Queue<string> _log;
+        private Queue<string> _queuedItems = new Queue<string>();
 
         private void Awake()
         {
@@ -26,8 +28,18 @@ namespace Assets.Scripts.Game
 
         public void AddToLog(string message)
         {
-            this._log.Enqueue(message);
-            string fullLog= String.Empty;
+            this._queuedItems.Enqueue(message);
+        }
+
+        private void Update()
+        {
+            if (Time.time - this._lastAdd < this._refreshRate || this._queuedItems.Count == 0)
+                return;
+            this._lastAdd = Time.time;
+            this._log.Enqueue(this._queuedItems.Dequeue());
+            if (this._log.Count > this._maxRows)
+                this._log.Dequeue();
+            string fullLog = String.Empty;
             foreach (string s in this._log)
                 fullLog += s + Environment.NewLine;
             this._text.text = fullLog;
