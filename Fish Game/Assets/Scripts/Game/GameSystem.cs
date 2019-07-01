@@ -42,6 +42,7 @@ namespace Assets.Scripts.Game
         public void CallNewPlayerTurn()
         {
             Debug.Log($"It's {this.CurrentPlayer}'s turn!");
+            ConsoleLog.AddToLog($"It's {this.CurrentPlayer}'s turn!");
             this.NewPlayerTurn?.Invoke(Instance, Instance.CurrentPlayer);
         }
         public void NextPlayer()
