@@ -21,22 +21,22 @@ namespace Assets.Scripts.Game
         public int BaseDamage => this._baseDamage;
 
         [SerializeField]
-        private int _damageDie;
-        public int DamageDie => this._damageDie;
+        private uint _damageDie;
+        public uint DamageDie => this._damageDie;
 
         [SerializeField]
         private uint _amountOfDamageDie;
         public uint AmountOfDamageDie => this._amountOfDamageDie;
 
         [SerializeField]
-        private int _catchDie;
-        public int CatchDie => this._catchDie;
+        private uint _catchDie;
+        public uint CatchDie => this._catchDie;
 
         [SerializeField]
-        private int[] _catchValues;
-        public int[] CatchValues => this._catchValues;
+        private uint[] _catchValues;
+        public uint[] CatchValues => this._catchValues;
 
-        public bool CatchSuccess(int dieValue) => this.CatchValues.Contains(dieValue);
+        public bool CatchSuccess(uint dieValue) => this.CatchValues.Contains(dieValue);
         
     }
 }
