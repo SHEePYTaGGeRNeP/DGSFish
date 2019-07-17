@@ -14,7 +14,7 @@ namespace Assets.Scripts
         private void Awake()
         {
             this._textMesh = this.GetComponent<Text>();
-            GameSystem.Instance.NewPlayerTurn += Instance_NewPlayerTurn; 
+            GameSystem.Instance.NewPlayerTurn += this.Instance_NewPlayerTurn; 
         }
 
         private void Instance_NewPlayerTurn(object sender, FisherPlayer e)

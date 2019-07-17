@@ -32,6 +32,7 @@ namespace Assets.Scripts.Game
 
         public static void AddToLog(string message)
         {
+            Debug.Log(message);
             _instance._queuedItems.Enqueue(message);
         }
 

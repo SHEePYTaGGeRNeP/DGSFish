@@ -12,7 +12,7 @@ namespace Assets.Scripts.Game.Cards
 
         public void On_Click()
         {
-            if (Random.Range(0f, 1f) > _percChanceToFindCard)
+            if (Random.Range(0f, 1f) > this._percChanceToFindCard)
             {
                 ConsoleLog.AddToLog($"{GameSystem.Instance.CurrentPlayer.Name} found no card.");
                 GameSystem.Instance.NextPlayer();

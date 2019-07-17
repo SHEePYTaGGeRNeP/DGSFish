@@ -12,13 +12,13 @@ public class UpdateCardList : MonoBehaviour
     
     private void Awake()
     {
-        _dropdown = GetComponent<Dropdown>();
-        GameSystem.Instance.NewPlayerTurn += updateList;
+        this._dropdown = this.GetComponent<Dropdown>();
+        GameSystem.Instance.NewPlayerTurn += this.updateList;
     }
 
     private void updateList(object sender, FisherPlayer e)
     {
-        updateList();
+        this.updateList();
     }
 
     public void updateList()
@@ -29,6 +29,6 @@ public class UpdateCardList : MonoBehaviour
         {
             newItems.Add(new Dropdown.OptionData(card.Name));
         });
-        _dropdown.options = newItems;
+        this._dropdown.options = newItems;
     }
 }

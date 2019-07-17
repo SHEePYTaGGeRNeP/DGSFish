@@ -11,9 +11,9 @@ namespace Assets.Scripts.Game
     public class FisherPlayer
     {
         /// <summary>Fish/IsKO</summary>
-        public List<(Fish, bool isKO)> Fish = new List<(Fish, bool)>();
+        public List<(Fish fish, bool isKO)> Fish = new List<(Fish, bool)>();
 
-        public Fish selectedFish;
+        public Fish SelectedFish { get; private set; }
 
         public string Name { get; }
 
@@ -24,35 +24,33 @@ namespace Assets.Scripts.Game
         public FisherPlayer(string name, Fish startFish)
         {
             this.Name = name;
-            selectedFish = startFish;
-            AddFish(startFish);
+            this.SelectedFish = startFish;
+            this.AddFish(startFish);
             this._cards = new List<ICard>();
         }
 
-        public void AddFish(Fish fish)
+        public void AddFish(Fish fish) => this.Fish.Add((fish, false));
+
+        public void SelectFishAsCurrent(Fish fish)
         {
-            this.Fish.Add((fish, false));
+            if (!this.Fish.Any(x => x.fish == fish))
+                throw new ApplicationException("Can't select a fish that the player does not posses");
+            this.SelectedFish = fish;
         }
 
-        public void AddCard(ICard card)
-        {
-            this._cards.Add(card);
-        }
+        public void AddCard(ICard card) => this._cards.Add(card);
 
-        public void RemoveCard(ICard card)
-        {
-            this._cards.Remove(card);
-        }
+        public void RemoveCard(ICard card) => this._cards.Remove(card);
 
-        public IEnumerable<Fish> getAliveFishs()
+        public IEnumerable<Fish> GetAliveFishes()
         {
             List<Fish> fishes = new List<Fish>();
-            return Fish.FindAll(fish => !fish.isKO).Select(pair  => pair.Item1);
+            return this.Fish.FindAll(fish => !fish.isKO).Select(pair  => pair.fish);
         }
 
         public void LostFight()
         {
-            (Fish, bool isKO) item = this.Fish.Find(x => x.Item1 == this.selectedFish);
+            (Fish, bool isKO) item = this.Fish.Find(x => x.fish == this.SelectedFish);
             item.isKO = true;
         }
 

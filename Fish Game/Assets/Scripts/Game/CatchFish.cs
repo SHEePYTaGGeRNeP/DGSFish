@@ -1,117 +1,118 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+using System.Linq;
 using Assets.Scripts;
 using Assets.Scripts.Game;
-using System.Linq;
 using Assets.Scripts.Game.Cards;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class CatchFish : MonoBehaviour
 {
     public FishHolder fishHolder;
 
-    private GameObject DefaultScreen;
-    private GameObject CatchFishEvent;
+    [SerializeField]
+    private GameObject _defaultScreen;
+    [SerializeField]
+    private GameObject _catchFishCanvas;
+    [SerializeField]
     private Dropdown dropdownCards;
+    [SerializeField]
+    private FishInfoCard _fishInfoCard;
+    [SerializeField]
+    private Text _rolledText;
 
     private Fish fishToCatch;
     private uint rollNumber;
 
     private void Awake()
     {
-        DefaultScreen = GameObject.Find("Canvas");
-        CatchFishEvent = GameObject.Find("CatchFishCanvas");
-        dropdownCards = GameObject.Find("Dropdown").GetComponent<Dropdown>();
-
-        CatchFishEvent.SetActive(false);
+        this._catchFishCanvas.SetActive(false);
     }
     public void StartCatchEvent()
     {
-        DefaultScreen.SetActive(false);
-        CatchFishEvent.SetActive(true);
+        this._defaultScreen.SetActive(false);
+        this._catchFishCanvas.SetActive(true);
 
-        SetupFish();
-        SetupCards();
+        this.SetupFish();
+        this.SetupCards();
     }
     private void SetupFish()
     {
-        fishToCatch = fishHolder.RandomFish();
-        rollNumber = Die.Roll(fishToCatch.CatchDie);
-        GameObject card = GameObject.Find("FishCard");
-        card.transform.GetChild(0).GetComponent<Image>().sprite = fishToCatch.Image;
-        card.transform.GetChild(1).GetComponent<Text>().text = fishToCatch.Name;
-        card.transform.GetChild(2).GetComponent<Image>().color = ConvertGradeToColor(fishHolder.GradeToInt(fishToCatch));
-        card.transform.GetChild(3).GetComponent<Text>().text = fishToCatch.BaseDamage.ToString();
-        card.transform.GetChild(4).GetComponent<Text>().text = fishToCatch.AmountOfDamageDie + "d" + fishToCatch.DamageDie;
-        card.transform.GetChild(5).GetComponent<Text>().text = "Thrown: " + rollNumber + ", Needed: ";
-
-        for (int i = 0; i < fishToCatch.CatchValues.Length; i++)
-        {
-            card.transform.GetChild(5).GetComponent<Text>().text += fishToCatch.CatchValues[i] + "/";
-        }
+        this.fishToCatch = this.fishHolder.RandomFish();
+        this.rollNumber = Die.Roll(this.fishToCatch.CatchDie);
+        this._fishInfoCard.ShowFish(this.fishToCatch, false);
+        this._rolledText.text = this.rollNumber.ToString();
+        this._rolledText.color = this.GetRolledTextColor();
     }
     private void SetupCards()
     {
-        dropdownCards.ClearOptions();
-        dropdownCards.options.Add(new Dropdown.OptionData("NONE"));
+        this.dropdownCards.ClearOptions();
+        this.dropdownCards.options.Add(new Dropdown.OptionData("NONE"));
         foreach (Card c in GameSystem.Instance.CurrentPlayer.PlayableCards)
         {
-            dropdownCards.options.Add(new Dropdown.OptionData(c.Name));
+            this.dropdownCards.options.Add(new Dropdown.OptionData(c.Name));
         }
     }
-    private Color ConvertGradeToColor(uint grade)
+
+    private Color GetRolledTextColor()
     {
-        switch (grade)
+        if (this.fishToCatch.WouldCatch(this.rollNumber))
+            return Color.green;
+
+        foreach (Card c in GameSystem.Instance.CurrentPlayer.PlayableCards)
         {
-            case 0:
-                return new Color(0, 0, 0, 0);
-            case 1:
-                return new Color(0, 1, 0, 1);
-            case 2:
-                return new Color(1, 0.2f, 0.2f, 1);
-            case 3:
-                return new Color(0.6f, 0, 0.8f, 1);
-            case 4:
-                return new Color(1, 1, 0, 1);
-            default:
-                return new Color(0, 0, 0, 0);
+            if (!(c is CatchingCard cc))
+                continue;
+            foreach (int bonus in cc.RollBonus)
+                if (this.fishToCatch.WouldCatch(this.rollNumber + (uint)bonus))
+                    return new Color(1, 1, 0);
         }
+        return Color.red;
     }
+
     public void TryCatchFish()
     {
-        if (fishToCatch.CatchSuccess(rollNumber))
-        {
-            ConsoleLog.AddToLog($"<color=blue>{GameSystem.Instance.CurrentPlayer.Name} caught a " + fishToCatch.Name + "!</color>");
-            GameSystem.Instance.CurrentPlayer.AddFish(fishToCatch);
-            EndCatchEvent();
-        }
-        else
-        {
-            ConsoleLog.AddToLog("<color=maroon>Despite your best efforts " + fishToCatch.Name + " got away!</color>");
-            EndCatchEvent();
-        }
+        this.EndCatchEvent();
     }
+
+
     public void ReleaseFish()
     {
-        EndCatchEvent();
+        this.EndCatchEvent();
     }
     private void EndCatchEvent()
     {
-        ICard thisCard = GameSystem.Instance.CurrentPlayer.Cards.FirstOrDefault(x => x.Name == dropdownCards.captionText.text);
-
-        if (null != thisCard)
+        ICard playedCard = GameSystem.Instance.CurrentPlayer.Cards.FirstOrDefault(x => x.Name == this.dropdownCards.captionText.text);
+        uint finalRoll = this.rollNumber;
+        if (null != playedCard)
         {
-            GameSystem.Instance.CurrentPlayer.RemoveCard(thisCard);
+            ConsoleLog.AddToLog($"Removed card {playedCard.Name}");
+            GameSystem.Instance.CurrentPlayer.RemoveCard(playedCard);
+            if (playedCard is CatchingCard cc)
+            {
+                foreach (int bonus in cc.RollBonus)
+                    if (this.fishToCatch.WouldCatch(this.rollNumber + (uint)bonus))
+                    {
+                        finalRoll = this.rollNumber + (uint)bonus;
+                        break;
+                    }
+            }
         }
 
+        if (this.fishToCatch.WouldCatch(finalRoll))
+        {
+            ConsoleLog.AddToLog($"<color=blue>{GameSystem.Instance.CurrentPlayer.Name} caught a " + this.fishToCatch.Name + "!</color>");
+            GameSystem.Instance.CurrentPlayer.AddFish(this.fishToCatch);
+        }
+        else
+        {
+            ConsoleLog.AddToLog("<color=maroon>Despite your best efforts " + this.fishToCatch.Name + " got away!</color>");
+        }
         GameSystem.Instance.NextPlayer();
-        DefaultScreen.SetActive(true);
-        CatchFishEvent.SetActive(false);
+        this._defaultScreen.SetActive(true);
+        this._catchFishCanvas.SetActive(false);
     }
-    public void PickACard()
-    {
-        //update roll number to be better based on picked card
 
-    }
+
 }

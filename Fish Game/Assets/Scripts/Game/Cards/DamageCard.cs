@@ -13,7 +13,7 @@ namespace Assets.Scripts.Game.Cards
         private uint _damage;
         public uint Damage => this._damage;
 
-        public override string Description => $"For battling fish. Bonus ({_damage}).";
+        public override string Description => $"For battling fish. Bonus ({this._damage}).";
 
         public override bool CanPlay() => GameSystem.Instance.CurrentState == GameSystem.GameState.Battling;
 

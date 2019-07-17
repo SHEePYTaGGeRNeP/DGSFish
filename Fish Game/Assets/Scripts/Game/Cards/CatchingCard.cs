@@ -13,7 +13,7 @@ namespace Assets.Scripts.Game.Cards
         private int[] _rollBonus;
         public int[] RollBonus => this. _rollBonus;
 
-        public override string Description => $"For catching fish. Bonusses ({String.Join(", ", _rollBonus)}.";
+        public override string Description => $"For catching fish. Bonusses ({String.Join(", ", this._rollBonus)}.";
 
         public override bool CanPlay() => GameSystem.Instance.CurrentState == GameSystem.GameState.Catching;
 

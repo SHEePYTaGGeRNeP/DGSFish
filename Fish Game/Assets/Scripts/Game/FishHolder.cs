@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Linq;
 
 namespace Assets.Scripts.Game
 {
@@ -25,20 +26,21 @@ namespace Assets.Scripts.Game
             float value = Random.Range(0, 101);
             int extraAdd = 0;
             int index;
-            for (index = 0; index < _chancePerType.Length; index++)
+            for (index = 0; index < this._chancePerType.Length; index++)
             {
-                if (value < _chancePerType[index] + extraAdd)
+                if (value < this._chancePerType[index] + extraAdd)
                 {
-                    type = IndexToType(index);
+                    type = this.RarityIndexToFishArray(index);
                     break;
                 }
-                extraAdd += _chancePerType[index];
+                extraAdd += this._chancePerType[index];
             }
             Fish f = type[Random.Range(0, type.Length)];
-            Debug.Log($"Random fish from set: {IndexToName(index)} {f}");
+            Debug.Log($"Random fish from set: {this.IndexToRarityName(index)} {f}");
             return f;
         }
-        private Fish[] IndexToType(int index)
+
+        private Fish[] RarityIndexToFishArray(int index)
         {
             switch (index)
             {
@@ -49,7 +51,8 @@ namespace Assets.Scripts.Game
                 case 4: return this._legendaryFish;
             }
         }
-        private string IndexToName(int index)
+
+        private string IndexToRarityName(int index)
         {
             switch (index)
             {
@@ -60,51 +63,21 @@ namespace Assets.Scripts.Game
                 case 4: return "Legendary";
             }
         }
-        public uint GradeToInt(Fish fish)
+
+        public int GetFishRarityIndex(Fish fish)
         {
-            uint grade = 0;
+            if (this._commonFish.Contains(fish))
+                return 0;
+            if (this._uncommonFish.Contains(fish))
+                return 1;
+            if (this._rareFish.Contains(fish))
+                return 2;
+            if (this._veryRareFish.Contains(fish))
+                return 3;
+            if (this._legendaryFish.Contains(fish))
+                return 4;
 
-            for (int i = 0; i < _commonFish.Length; i++)
-            {
-                if (_commonFish[i] == fish)
-                {
-                    grade = 0;
-                }
-            }
-
-            for (int i = 0; i < _uncommonFish.Length; i++)
-            {
-                if (_uncommonFish[i] == fish)
-                {
-                    grade = 1;
-                }
-            }
-
-            for (int i = 0; i < _rareFish.Length; i++)
-            {
-                if (_rareFish[i] == fish)
-                {
-                    grade = 2;
-                }
-            }
-
-            for (int i = 0; i < _veryRareFish.Length; i++)
-            {
-                if (_veryRareFish[i] == fish)
-                {
-                    grade = 3;
-                }
-            }
-
-            for (int i = 0; i < _legendaryFish.Length; i++)
-            {
-                if (_legendaryFish[i] == fish)
-                {
-                    grade = 4;
-                }
-            }
-
-            return grade;
+            throw new System.ApplicationException($"Fish {fish.Name} not found in FishHolder");
         }
     }
 }

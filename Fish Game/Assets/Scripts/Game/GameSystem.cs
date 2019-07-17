@@ -34,7 +34,7 @@ namespace Assets.Scripts.Game
             Debug.Log($"Starting game with {nrOfPlayers} player(s).");
             this._players.Clear();
             for (int i = 0; i < nrOfPlayers; i++)
-                this._players.Add(new FisherPlayer($"Player {i + 1}", startFish));
+                this._players.Add(new FisherPlayer($"Player {i + 1}", this.startFish));
             this._currentPlayerIndex = 0;
             SceneManager.LoadScene(this._sceneToLoad);
         }

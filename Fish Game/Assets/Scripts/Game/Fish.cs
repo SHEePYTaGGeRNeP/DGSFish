@@ -40,13 +40,13 @@ namespace Assets.Scripts.Game
         private uint[] _catchValues;
         public uint[] CatchValues => this._catchValues;
 
-        public bool CatchSuccess(uint dieValue) => this.CatchValues.Contains(dieValue);
+        public bool WouldCatch(uint dieValue) => this.CatchValues.Contains(dieValue);
 
         public uint RollDamage() => Die.Roll(this.AmountOfDamageDie, this.DamageDie) + this.BaseDamage;
 
         public override string ToString()
         {
-            return $"{this.Name} {AmountOfDamageDie}d{DamageDie}+{BaseDamage}";
+            return $"{this.Name} {this.AmountOfDamageDie}d{this.DamageDie}+{this.BaseDamage}";
         }
 
     }
