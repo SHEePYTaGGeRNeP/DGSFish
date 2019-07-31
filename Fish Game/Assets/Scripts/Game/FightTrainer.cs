@@ -85,6 +85,7 @@ public class FightTrainer : MonoBehaviour
 
         Debug.Log("BACK2MENU");
         this._menuHandler.BackToMenu();
+        GameSystem.Instance.NextPlayer();
     }
 
     private uint RollPlayer() => GameSystem.Instance.CurrentPlayer.SelectedFish.RollDamage();

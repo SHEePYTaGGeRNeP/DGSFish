@@ -1,0 +1,6 @@
+Common avg: 	4.5   	80%
+Uncommon avg: 	6   	50%
+Rare avg: 	9  	37.5%
+Very rare avg: 	11   	20%
+Legendary avg: 	15   	10%
+Trainer avg: 	18

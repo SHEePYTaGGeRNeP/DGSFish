@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 453fffea7e1c4535b3ef057a06ef6ed1, type: 3}
-  m_Name: Henk
+  m_Name: Piet
   m_EditorClassIdentifier: 
-  name: Henk
-  fish: {fileID: 11400000, guid: 1945a72a9105ffb468935eb5c93e3d16, type: 2}
+  name: Piet
+  fish: {fileID: 11400000, guid: c3d4947a6e28fff48964895dfb651e05, type: 2}

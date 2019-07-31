@@ -76,11 +76,6 @@ public class CatchFish : MonoBehaviour
         this.EndCatchEvent();
     }
 
-
-    public void ReleaseFish()
-    {
-        this.EndCatchEvent();
-    }
     private void EndCatchEvent()
     {
         ICard playedCard = GameSystem.Instance.CurrentPlayer.Cards.FirstOrDefault(x => x.Name == this.dropdownCards.captionText.text);

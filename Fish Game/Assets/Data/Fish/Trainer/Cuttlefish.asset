@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbc838d21cc47d84bb2fac64238d6d7b, type: 3}
-  m_Name: Dory
+  m_Name: Cuttlefish
   m_EditorClassIdentifier: 
-  _name: Dory
-  _image: {fileID: 21300000, guid: c8726017dc42e3949ba9857db98c3e2a, type: 3}
-  _baseDamage: 10
-  _damageDie: 8
-  _amountOfDamageDie: 1
-  _attackName: Just Keep Swimming
+  _name: Giant Turtle
+  _image: {fileID: 21300000, guid: 1f59e73b09147944f9c65af3e8755576, type: 3}
+  _baseDamage: 4
+  _damageDie: 6
+  _amountOfDamageDie: 4
+  _attackName: Confuse
   _catchDie: 0
   _catchValues: 

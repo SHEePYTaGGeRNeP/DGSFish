@@ -45,7 +45,7 @@ namespace Assets.Scripts.Game
         public IEnumerable<Fish> GetAliveFishes()
         {
             List<Fish> fishes = new List<Fish>();
-            return this.Fish.FindAll(fish => !fish.isKO).Select(pair  => pair.fish);
+            return this.Fish.Where(fish => !fish.isKO).Select(pair  => pair.fish);
         }
 
         public void LostFight()
