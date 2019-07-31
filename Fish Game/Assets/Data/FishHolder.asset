@@ -27,6 +27,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 02ff49a2461bef14c99e5a26ef104085, type: 2}
   - {fileID: 11400000, guid: 87066d663b19830498e04381e390b8c4, type: 2}
   - {fileID: 11400000, guid: fa090ad9b80d11247a3aaa97aa3f389c, type: 2}
+  - {fileID: 11400000, guid: dfd362fc6d74a764cb2bda5c3c01ec83, type: 2}
   _veryRareFish:
   - {fileID: 11400000, guid: fc430a836cf05674f9e158aef4886b05, type: 2}
   - {fileID: 11400000, guid: 33ba6f3dbf5de8d4386549e59874a207, type: 2}
@@ -34,4 +35,5 @@ MonoBehaviour:
   _legendaryFish:
   - {fileID: 11400000, guid: 83f55c36f9749a14192e0498c87ef06c, type: 2}
   - {fileID: 11400000, guid: 4a3ae09898a655944a8f12e98a3c5ce1, type: 2}
+  - {fileID: 11400000, guid: ec9f230fb103c774c82b69245cdece8a, type: 2}
   _chancePerType: 280000001f0000000f0000000900000005000000

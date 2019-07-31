@@ -2097,6 +2097,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 98e11eab77083184dbbd00c8bc191834, type: 2}
   - {fileID: 11400000, guid: 186646fa596d5064580a9f9e5417847a, type: 2}
   - {fileID: 11400000, guid: 0781f9051ad39c242bd887f8133d9c82, type: 2}
+  - {fileID: 11400000, guid: 19307160462e279458655398a3c68e37, type: 2}
+  - {fileID: 11400000, guid: 6664d4fadfbcc114189d93bad9abe141, type: 2}
   _cardsDropdown: {fileID: 103624103}
   _menuHandler: {fileID: 714880332}
   _playerFishInfoCard: {fileID: 1384994879}
