@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Dory
   m_EditorClassIdentifier: 
   _name: Dory
-  _image: {fileID: 0}
-  _baseDamage: 2
+  _image: {fileID: 21300000, guid: c8726017dc42e3949ba9857db98c3e2a, type: 3}
+  _baseDamage: 14
   _damageDie: 8
-  _amountOfDamageDie: 3
+  _amountOfDamageDie: 1
   _attackName: Just Keep Swimming
   _catchDie: 0
   _catchValues: 

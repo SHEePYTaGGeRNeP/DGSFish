@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbc838d21cc47d84bb2fac64238d6d7b, type: 3}
-  m_Name: Swordfish
+  m_Name: Orca
   m_EditorClassIdentifier: 
-  _name: Swordfish
-  _image: {fileID: 21300000, guid: 4ad5d67b7e1898c4698779e24c8743df, type: 3}
-  _baseDamage: 16
-  _damageDie: 2
-  _amountOfDamageDie: 4
-  _attackName: Swing
-  _catchDie: 0
-  _catchValues: 
+  _name: Killer Whale
+  _image: {fileID: 21300000, guid: fb2357476c2458b42b1e9b058c7f4d8b, type: 3}
+  _baseDamage: 6
+  _damageDie: 8
+  _amountOfDamageDie: 2
+  _attackName: Devour
+  _catchDie: 10
+  _catchValues: 06000000

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Whale Shark
   m_EditorClassIdentifier: 
   _name: Whale Shark
-  _image: {fileID: 0}
+  _image: {fileID: 21300000, guid: fc8d0fc04372f7e47a885c147efcb1d7, type: 3}
   _baseDamage: 12
   _damageDie: 8
   _amountOfDamageDie: 3

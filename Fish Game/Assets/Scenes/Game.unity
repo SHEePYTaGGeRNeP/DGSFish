@@ -2320,7 +2320,8 @@ MonoBehaviour:
   _trainers:
   - {fileID: 11400000, guid: 98e11eab77083184dbbd00c8bc191834, type: 2}
   - {fileID: 11400000, guid: 186646fa596d5064580a9f9e5417847a, type: 2}
-  _cardsDropdown: {fileID: 691784029}
+  - {fileID: 11400000, guid: 0781f9051ad39c242bd887f8133d9c82, type: 2}
+  _cardsDropdown: {fileID: 103624103}
   _menuHandler: {fileID: 714880332}
   _playerFishInfoCard: {fileID: 1384994879}
   _opponentFishInfoCard: {fileID: 638818472}
@@ -5140,7 +5141,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 714880334}
-        m_MethodName: resolveClick
+        m_MethodName: ResolveClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -53,15 +53,13 @@ public class FightTrainer : MonoBehaviour
 
     public void ResolveClick()
     {
-        string name = this._cardsDropdown.options[this._cardsDropdown.value].text;
         List<DamageCard> cards = new List<DamageCard>();
-        if (name != "NONE")
+        if (this._cardsDropdown.value > 0)
         {
-            DamageCard y = (DamageCard)GameSystem.Instance.CurrentPlayer.Cards.First(x => x.Name == name);
-            if (y)
-                cards.Add(y);
+            string selectedCard = this._cardsDropdown.options[this._cardsDropdown.value].text;
+            DamageCard y = (DamageCard)GameSystem.Instance.CurrentPlayer.Cards.First(x => x.Name == selectedCard);
+            cards.Add(y);
         }
-
         this.ResolveFight(this._playerRoll, cards);
     }
 

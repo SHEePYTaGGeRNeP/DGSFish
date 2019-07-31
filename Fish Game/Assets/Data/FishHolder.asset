@@ -14,47 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _commonFish:
   - {fileID: 11400000, guid: 6854de5f766f1184b94d03360edb9e0a, type: 2}
-  - {fileID: 11400000, guid: d19314c64bf8ade4aaff5e2aeadd09c3, type: 2}
-  - {fileID: 11400000, guid: 785933818d0e9464988907c01161af03, type: 2}
   - {fileID: 11400000, guid: 12738399958013f4e99464d8b565725f, type: 2}
-  - {fileID: 11400000, guid: 6e3d5503e27c6444c951a32449ce1b5a, type: 2}
-  - {fileID: 11400000, guid: e8517059ad0326a43baa971f46cf93ab, type: 2}
   - {fileID: 11400000, guid: ea61760a5cb638248802c86c281f17f9, type: 2}
-  - {fileID: 11400000, guid: 1abd6adc4e5a3144bb2fce95d3ee99d9, type: 2}
-  - {fileID: 11400000, guid: cf133d47bf3316646a458e71aae7a3e0, type: 2}
-  - {fileID: 11400000, guid: 790d1ac96edb79a4baebfea7929e4527, type: 2}
-  - {fileID: 11400000, guid: 48d6d61cd4acd6b408260a25a1893a64, type: 2}
-  - {fileID: 11400000, guid: 2101c73564896ea4aaeb68437b3ef23c, type: 2}
-  - {fileID: 11400000, guid: c6ebfd19ae09d5d459014a1cb0337570, type: 2}
-  - {fileID: 11400000, guid: 73d7ac7017e560a409ca4dd34905fbda, type: 2}
-  - {fileID: 11400000, guid: 2fb40aeca3d09b04b91ae76f2019ae53, type: 2}
   _uncommonFish:
   - {fileID: 11400000, guid: cfc8a975179777e4aa131f8b41c00f26, type: 2}
   - {fileID: 11400000, guid: bdbf65adbba74c14cb539fd39c979cc0, type: 2}
-  - {fileID: 11400000, guid: 7e5090a7bdac3504e95fea8e599f5adf, type: 2}
+  - {fileID: 11400000, guid: 22dc127f3d2bab74b8b13877302ddaff, type: 2}
   - {fileID: 11400000, guid: 0a3ce6bf43d97e746abb3f1ae86f9e84, type: 2}
-  - {fileID: 11400000, guid: b6d873b18274b3546b434323141517d1, type: 2}
-  - {fileID: 11400000, guid: 13cc6fc7a3953fd45b97077f7276a2fe, type: 2}
   - {fileID: 11400000, guid: 3a2f26deb9ab9354fb4bc3a94e65d13f, type: 2}
   - {fileID: 11400000, guid: 0c61b8db2f1fb774fa27673b1ef983cb, type: 2}
-  - {fileID: 11400000, guid: 22dc127f3d2bab74b8b13877302ddaff, type: 2}
-  - {fileID: 11400000, guid: cbabe67d021e57247a508ec712ba04a0, type: 2}
   _rareFish:
   - {fileID: 11400000, guid: 02ff49a2461bef14c99e5a26ef104085, type: 2}
   - {fileID: 11400000, guid: 87066d663b19830498e04381e390b8c4, type: 2}
-  - {fileID: 11400000, guid: 2158539e356b450458d2684d1af28a79, type: 2}
   - {fileID: 11400000, guid: fa090ad9b80d11247a3aaa97aa3f389c, type: 2}
-  - {fileID: 11400000, guid: a631b4f3eccb84044962a04b34d64c48, type: 2}
-  - {fileID: 11400000, guid: 2514ed12dd2776d4c9548f87f5b417a8, type: 2}
-  - {fileID: 11400000, guid: bf31a5f3e786bbe4695f400b06a50684, type: 2}
   _veryRareFish:
-  - {fileID: 11400000, guid: 249dd0be3a5542d4b8e579fda670d66f, type: 2}
+  - {fileID: 11400000, guid: fc430a836cf05674f9e158aef4886b05, type: 2}
   - {fileID: 11400000, guid: 33ba6f3dbf5de8d4386549e59874a207, type: 2}
   - {fileID: 11400000, guid: 00e3e98f1052a7f49bed7ce135da25f3, type: 2}
-  - {fileID: 11400000, guid: fc430a836cf05674f9e158aef4886b05, type: 2}
-  - {fileID: 11400000, guid: 788d5b94cd03b9f45b3eac2210e08eb6, type: 2}
   _legendaryFish:
-  - {fileID: 11400000, guid: 2e1aaf337093c6845984e04dc7f9d9cb, type: 2}
-  - {fileID: 11400000, guid: 4a3ae09898a655944a8f12e98a3c5ce1, type: 2}
   - {fileID: 11400000, guid: 83f55c36f9749a14192e0498c87ef06c, type: 2}
+  - {fileID: 11400000, guid: 4a3ae09898a655944a8f12e98a3c5ce1, type: 2}
   _chancePerType: 280000001f0000000f0000000900000005000000

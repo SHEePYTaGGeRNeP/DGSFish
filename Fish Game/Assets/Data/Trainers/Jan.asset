@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 453fffea7e1c4535b3ef057a06ef6ed1, type: 3}
-  m_Name: Klaas
+  m_Name: Jan
   m_EditorClassIdentifier: 
-  name: Klaas van der klomp
-  fish: {fileID: 11400000, guid: dae0fdcda0809634fbc0389d887fdc00, type: 2}
+  name: Jan
+  fish: {fileID: 11400000, guid: e1c2e388b710d2d48a66872d85d10061, type: 2}

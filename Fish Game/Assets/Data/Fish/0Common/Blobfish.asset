@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbc838d21cc47d84bb2fac64238d6d7b, type: 3}
-  m_Name: Swordfish
+  m_Name: Blobfish
   m_EditorClassIdentifier: 
-  _name: Swordfish
-  _image: {fileID: 21300000, guid: 4ad5d67b7e1898c4698779e24c8743df, type: 3}
-  _baseDamage: 16
-  _damageDie: 2
-  _amountOfDamageDie: 4
-  _attackName: Swing
-  _catchDie: 0
-  _catchValues: 
+  _name: Blobfish
+  _image: {fileID: 21300000, guid: 1c3145dd977b21949b3e6b29ab5300b7, type: 3}
+  _baseDamage: 2
+  _damageDie: 4
+  _amountOfDamageDie: 1
+  _attackName: Blubber
+  _catchDie: 6
+  _catchValues: 0200000003000000040000000500000006000000
